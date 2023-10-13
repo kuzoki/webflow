@@ -305,12 +305,12 @@
         });
     };
    
-    /**
+   /**
      *  Modal Function Helpers 
     **/
     const updateModalHtml = (club) => {  
         const modalClubDataHtml = `
-                    <div class=" col-2-3">
+                    <div class="wrap">
                         <div class="pack">
                             <span>Telefon</span>
                             <p>${club.clubcontactphone}</p>
@@ -336,7 +336,7 @@
                             <p>${club.sports}</p>
                         </div>
                     </div>
-                    <div class=" col-1-3">
+                    <div class="wrap">
                         <div class="club-contact">
                             <p>${club.clubcontactname} </p> 
                             <span>Daten Ansprechpartner</span>

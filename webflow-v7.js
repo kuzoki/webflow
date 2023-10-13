@@ -252,11 +252,14 @@
         // Search by clubAddressZip, clubName, or clubAddressCity
         for (const data of dataArray) {
             // Convert property values to lowercase and check for a match
+            const sportsArray = data.sports.toLowerCase().split(', ');
+            const matched = sportsArray.some(word => word.includes(query));
             if (
                 data.clubaddresszip?.toLowerCase().startsWith(lowerParam) ||
                 data.clubname?.toLowerCase().startsWith(lowerParam)||
                 data.clubaddresscity?.toLowerCase().startsWith(lowerParam)||
-                data.region?.toLowerCase().startsWith(lowerParam)
+                data.region?.toLowerCase().startsWith(lowerParam) ||
+                matched
             ) {
                 matchingData.push(data); // Fix the variable name here
             }
@@ -419,15 +422,19 @@
                         clubaddresszip: $item.attr('clubaddresszip'),
                         clubname: $item.attr('clubname'),
                         clubaddresscity: $item.attr('clubaddresscity'),
-                        region: $item.attr('region')
+                        region: $item.attr('region'),
+                        sports: $item.attr('sports')
                     };
 
                     if (region === paramURL) {
+                        const sportsArray = data.sports.toLowerCase().split(', ');
+                        const matched = sportsArray.some(word => word.includes(query));
                         if (
                             data.clubaddresszip.toLowerCase().startsWith(query) ||
                             data.clubname.toLowerCase().startsWith(query) ||
                             data.clubaddresscity.toLowerCase().startsWith(query) ||
-                            data.region.toLowerCase().startsWith(query)
+                            data.region.toLowerCase().startsWith(query) ||
+                            matched
                         ) {
                             $item.show();
                         } else {

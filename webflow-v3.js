@@ -299,7 +299,9 @@
             // Check if the region number is in the uniqueRegionNumbers array
             if (uniqueRegionNumbers.includes(listItemRegion)) {
                 listItem.addClass('forceHovered');
-            } 
+            } else{
+                listItem.removeClass('forceHovered');
+            }
         });
     };
    

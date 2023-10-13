@@ -1,4 +1,5 @@
-let clubsArray = [];   
+ // Main variables
+    let clubsArray = [];   
     const searchCloseIconSvg=`
         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0_919_15272" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
@@ -112,9 +113,6 @@ let clubsArray = [];
                 </div>
             </div>
     `;
-    // This Part Will be Used in region pages 
-    
-
     // Init PUSh All Clubs useful for Modal
     const pushToClubsArray = () => {
         $('.club-item').each(function () {
@@ -265,34 +263,32 @@ let clubsArray = [];
         }
 
         // Return the array of matching objects
-        console.log(matchingData)
         return matchingData;
     };
     // Hiegh-light List And Map Based On search
     const hideOrShowListItemsByRegion = (result) => {
         // Show all list items if result is null
-        // const regionList = $('#regions-btn-list');
         if (result === null || !result.length) {
             $('#regions-btn-list a[data-region]').each(function() {
-                $(this).show();
+                $(this).parent('.collection-item-regions-button').show();
             });
             $('#regionMap .hover-region-svg').each(function() {
-                $(this).removeClass('hovered');;
+                $(this).parent('.collection-item-regions-button').removeClass('hovered');;
             });
             return;
         }
         // Extract unique region numbers from the result
         const uniqueRegionNumbers = [...new Set(result.map(item => item.region))];
-        console.log(uniqueRegionNumbers)
+        
         $('#regions-btn-list a[data-region]').each(function() {
             const listItem = $(this);
             const listItemRegion = listItem.attr('data-region');
             
             // Check if the region number is in the uniqueRegionNumbers array
             if (uniqueRegionNumbers.includes(listItemRegion)) {
-                listItem.show();
+                listItem.parent('.collection-item-regions-button').show();
             } else {
-                listItem.hide();
+                listItem.parent('.collection-item-regions-button').hide();
             }
         });
         // Add Hover state to map

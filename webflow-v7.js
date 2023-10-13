@@ -367,11 +367,9 @@
     // Handel Click With filter
     const handleClickOnClub = (clubs) => {
         $('#searchResults').on('click', '.clubModal-btn' , function () {
-            
             const clubId = $(this).data('clubid');
             if (!clubs) return;
             const foundedClub = clubs.find(club => club.reportid === clubId);
-            console.log(foundedClub)
             updateModalHtml(foundedClub);
         });
          // Close Modal    
@@ -405,7 +403,6 @@
    const showOnlyRelatedClub = (paramURL) => {
         $('.w-dyn-item').hide()
         $('.club-item').each(function (){
-            console.log($(this).attr('region'))
             if($(this).attr('region') === paramURL){
                 $(this).parents('.w-dyn-item').show()
             }

@@ -153,7 +153,7 @@
             }
         });
     };
-
+ 
     // Injecting dom
     const addRegionMap = () =>{
         $('#regionMap').html(mapSvg);
@@ -398,4 +398,47 @@
                 $('.dropdown-content').addClass('active');
             }
         })
+    }
+   const showOnlyRelatedClub = (paramURL) => {
+        $('.w-dyn-item').hide()
+        $('.club-item').each(function (){
+            console.log($(this).attr('region'))
+            if($(this).attr('region') === paramURL){
+                $(this).parents('.w-dyn-item').show()
+            }
+        })
+    }
+    const filterOnregionSinglePage = (paramURL) =>{
+        $('.search-input').on('keyup', function() {
+            const query = $(this).val().toLowerCase();
+            if (query.length >= 1) {
+                $('.club-item').each(function() {
+                    const $item = $(this);
+                    const region = $item.attr('region');
+                    const data = {
+                        clubaddresszip: $item.attr('clubaddresszip'),
+                        clubname: $item.attr('clubname'),
+                        clubaddresscity: $item.attr('clubaddresscity'),
+                        region: $item.attr('region')
+                    };
+
+                    if (region === paramURL) {
+                        if (
+                            data.clubaddresszip.toLowerCase().startsWith(query) ||
+                            data.clubname.toLowerCase().startsWith(query) ||
+                            data.clubaddresscity.toLowerCase().startsWith(query) ||
+                            data.region.toLowerCase().startsWith(query)
+                        ) {
+                            $item.show();
+                        } else {
+                            $item.hide();
+                        }
+                    } else {
+                        $item.hide();
+                    }
+                });
+            } else {
+                $('.club-item').show(); // Show all items when the search input is empty
+            }
+        });
     }

@@ -254,14 +254,13 @@
         // Search by clubAddressZip, clubName, or clubAddressCity
         for (const data of dataArray) {
             // Convert property values to lowercase and check for a match
-            const sportsArray = data.sports.toLowerCase().split(', ');
-            const matched = sportsArray.some(word => word.includes(lowerParam));
+            // const sportsArray = data.sports.toLowerCase().split(', ');
+            // const matched = sportsArray.some(word => word.includes(lowerParam));
             if (
                 data.clubaddresszip?.toLowerCase().startsWith(lowerParam) ||
                 data.clubname?.toLowerCase().startsWith(lowerParam)||
                 data.clubaddresscity?.toLowerCase().startsWith(lowerParam)||
-                data.region?.toLowerCase().startsWith(lowerParam) ||
-                matched
+                data.region?.toLowerCase().startsWith(lowerParam) 
             ) {
                 matchingData.push(data); // Fix the variable name here
             }

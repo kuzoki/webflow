@@ -186,7 +186,7 @@
 
         // On Map Clicking triger List
         svgElements.on("click", function() {
-           if ($(window).width() < 768) {
+           if ($(window).width() > 768) {
                const dataRegionValue = $(this).data("region");
                const linkHref = regionList.find(`a[data-region="${dataRegionValue}"]`).attr('href');
                window.location = linkHref;

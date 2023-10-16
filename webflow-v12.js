@@ -255,7 +255,7 @@
         for (const data of dataArray) {
             // Convert property values to lowercase and check for a match
             const sportsArray = data.sports.toLowerCase().split(', ');
-            const matched = sportsArray.some(word => word.includes(query));
+            const matched = sportsArray.some(word => word.includes(lowerParam));
             if (
                 data.clubaddresszip?.toLowerCase().startsWith(lowerParam) ||
                 data.clubname?.toLowerCase().startsWith(lowerParam)||

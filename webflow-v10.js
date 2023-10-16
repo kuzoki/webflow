@@ -381,24 +381,24 @@
     }
 
     function dropdown () {
-        $(".dropdown-content").hide();
-        $(".dropdown-content li").click(function () {
+        $(".custom-dropdown-content").hide();
+        $(".custom-dropdown-content li").click(function () {
             const svgElements = $('.hover-region-svg'); 
             var regionName = $(this).data("regionname");
             var regionHref = $(this).data("regionhref");
-            $('.dropdown-content').removeClass('active');
+            $('.custom-dropdown-content').removeClass('active');
             $(".red-Button-link").text(regionName);
             $(".red-Button-link").attr("href", regionHref);
             $(".red-Button-link").show();
             svgElements.removeClass("hovered")
             svgElements.filter(`[data-region="${regionName}"]`).addClass("hovered");
         });
-        $(".dropdown").click(function(){
-            $('.dropdown-content').toggle()
-            if($('.dropdown-content').hasClass('active')){
-                $('.dropdown-content').removeClass('active');
+        $(".custom-dropdown").click(function(){
+            $('.custom-dropdown-content').toggle()
+            if($('.custom-dropdown-content').hasClass('active')){
+                $('.custom-dropdown-content').removeClass('active');
             }else{
-                $('.dropdown-content').addClass('active');
+                $('.custom-dropdown-content').addClass('active');
             }
         })
     }

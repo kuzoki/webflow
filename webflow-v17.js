@@ -313,44 +313,45 @@
      *  Modal Function Helpers 
     **/
     const updateModalHtml = (club) => {  
-        const modalClubDataHtml = `
-                    <div class="wrap">
-                        <div class="pack">
-                            <span>Telefon</span>
-                            <p>${club.clubcontactphone}</p>
-                        </div>
-                        <div class="pack">
-                            <span>E-Mail Adresse</span>
-                            <p>${club.clubcontactemail}</p>
-                        </div>
-                        <div class="pack">
-                            <span>Website</span>
-                            <p>${club.clubcontactwebsite}</p>
-                        </div>
-                        <div class="pack">
-                            <span>Adresse</span>
-                            <p>${club.clubaddressstreet}, ${club.clubaddresszip} ${club.clubaddresscity} </p>
-                        </div>
-                        <div class="extra-margin pack">
-                            <span>Sport Categories:</span>
-                            <p>${club.categories}</p>
-                        </div>
-                        <div class="extra-margin pack">
-                            <span>Sport disciplines:</span>
-                            <p>${club.sports}</p>
-                        </div>
-                    </div>
-                    <div class="wrap">
-                        <div class="club-contact">
-                            <p>${club.clubcontactname} </p> 
-                            <span>Daten Ansprechpartner</span>
-                        </div>
-                        <div class="pack">
-                            <span>E-Mail Adresse</span>
-                            <p>${club.clubcontactemail}</p>
-                        </div>
-                    </div>
-        `
+       const modalClubDataHtml = `
+          <div class="wrap">
+              <div class="pack">
+                  <span>Telefon</span>
+                  <p>${club.clubcontactphone || '-'}</p>
+              </div>
+              <div class="pack">
+                  <span>E-Mail Adresse</span>
+                  <p>${club.clubcontactemail || '-'}</p>
+              </div>
+              <div class="pack">
+                  <span>Website</span>
+                  <p>${club.clubcontactwebsite || '-'}</p>
+              </div>
+              <div class="pack">
+                  <span>Adresse</span>
+                  <p>${club.clubaddressstreet || '-'}, ${club.clubaddresszip || '-'} ${club.clubaddresscity || '-'} </p>
+              </div>
+              <div class="extra-margin pack">
+                  <span>Sport Categories:</span>
+                  <p>${club.categories || '-'}</p>
+              </div>
+              <div class="extra-margin pack">
+                  <span>Sport disciplines:</span>
+                  <p>${club.sports || '-'}</p>
+              </div>
+          </div>
+          <div class="wrap">
+              <div class="club-contact">
+                  <p>${club.clubcontactname || '-'} </p> 
+                  <span>Daten Ansprechpartner</span>
+              </div>
+              <div class="pack">
+                  <span>E-Mail Adresse</span>
+                  <p>${club.clubcontactemail || '-'}</p>
+              </div>
+          </div>
+      `;
+
         const modalContentWrapper = `  
                 <span class="close" id="closeModalBtn">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

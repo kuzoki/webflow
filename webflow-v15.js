@@ -386,7 +386,7 @@
             var regionName = $(this).data("regionname");
             var regionHref = $(this).data("regionhref");
             $('.custom-dropdown-content').removeClass('active');
-            $(".custom-dropdown button").text(regionName)
+            $(".custom-dropdown .button").text(regionName)
             $(".red-Button-link").text(regionName);
             $(".red-Button-link").attr("href", regionHref);
             $(".red-Button-link").show();

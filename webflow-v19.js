@@ -344,7 +344,7 @@ const updateModalHtml = (club) => {
                   <p>${club.clubcontactemail || "-"}</p>
               </div>
               <div class="pack">
-                  <span>Website</span>
+                  <span>Webseite</span>
                   <p>${club.clubcontactwebsite || "-"}</p>
               </div>
               <div class="pack">
@@ -354,11 +354,11 @@ const updateModalHtml = (club) => {
                   } ${club.clubaddresscity || "-"} </p>
               </div>
               <div class="extra-margin pack">
-                  <span>Sport Categories:</span>
+                  <span>Sport Kategorien:</span>
                   <p>${club.categories || "-"}</p>
               </div>
               <div class="extra-margin pack">
-                  <span>Sport disciplines:</span>
+                  <span>Sport Disziplinen:</span>
                   <p>${club.sports || "-"}</p>
               </div>
           </div>

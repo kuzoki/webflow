@@ -211,7 +211,6 @@ const mapRegionInteraction = () => {
 const searchEvent = (regionPage) => {
   $("#searchInputClubs").on("keyup", function () {
     const query = $(this).val();
-    console.log(query);
     if (query.length >= 1) {
       $("#resetSearch").show();
       filterResult(query);
@@ -275,7 +274,6 @@ const findMatchingData = (param, dataArray, regionsData) => {
     const sportsArray = data.sports?.toLowerCase().split(", ") || []; // Use optional chaining
 
     const matched = sportsArray.some((word) => word.startsWith(lowerParam));
-    console.log(sportsArray);
     if (
       data.clubaddresszip?.toLowerCase().startsWith(lowerParam) ||
       data.clubname?.toLowerCase().startsWith(lowerParam) ||
@@ -294,7 +292,6 @@ const findMatchingData = (param, dataArray, regionsData) => {
 const hideOrShowListItemsByRegion = (result) => {
   // Show all list items if result is null
   if (result === null || !result.length) {
-    console.log("nada");
     $("#regions-btn-list a[data-region]").each(function () {
       $(this).parent(".collection-item-regions-button").show();
     });

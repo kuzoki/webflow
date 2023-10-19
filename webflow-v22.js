@@ -237,7 +237,7 @@ const filterResult = (query, regionPage) => {
                         <span class="heading-style-h6">${item.clubname}</span>
                         <span class="text-size-small red-500">${item.clubaddresscity}</span>
                     </p>
-                    <div class="button is-primary minimal end-icon"><div class="button-link-text icon">Club details</div><div class="icon-24"><img loading="lazy" src="https://assets-global.website-files.com/650ac6d9df0dda7c97aba18e/650c89b532eb04ab7811124e_ic-db_action_info-circle_24.svg" alt="" class="image-18"></div></div>
+                    <div class="button is-primary minimal end-icon"><div class="button-link-text icon">Details anzeigen</div><div class="icon-24"><img loading="lazy" src="https://assets-global.website-files.com/650ac6d9df0dda7c97aba18e/650c89b532eb04ab7811124e_ic-db_action_info-circle_24.svg" alt="" class="image-18"></div></div>
                 </li>`,
     );
     const htmlContent = `

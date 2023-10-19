@@ -232,16 +232,16 @@ const filterResult = (query, regionPage) => {
 
     const htmlContentArray = result.map(
       (item) => `
-                 <li class="club-tile">
+                 <li class="club-tile clubModal-btn" data-clubId='${item.reportid}'>
                     <p class="text-group-4">
                         <span class="heading-style-h6">${item.clubname}</span>
                         <span class="text-size-small red-500">${item.clubaddresscity}</span>
                     </p>
-                    <div data-clubId='${item.reportid}' class="clubModal-btn button is-primary minimal end-icon"><div class="button-link-text icon">Clubdetails</div><div class="icon-24"><img loading="lazy" src="https://assets-global.website-files.com/650ac6d9df0dda7c97aba18e/650c89b532eb04ab7811124e_ic-db_action_info-circle_24.svg" alt="" class="image-18"></div></div>
+                    <div class="button is-primary minimal end-icon"><div class="button-link-text icon">Club details</div><div class="icon-24"><img loading="lazy" src="https://assets-global.website-files.com/650ac6d9df0dda7c97aba18e/650c89b532eb04ab7811124e_ic-db_action_info-circle_24.svg" alt="" class="image-18"></div></div>
                 </li>`,
     );
     const htmlContent = `
-                <h4>clubs</h4>
+                <h4>Vereine</h4>
                 <ul>
                     ${htmlContentArray.join("")}
                 </ul>
@@ -364,8 +364,8 @@ const updateModalHtml = (club) => {
           </div>
           <div class="wrap">
               <div class="club-contact">
-                  <p>${club.clubcontactname || "-"} </p> 
-                  <span>Daten Ansprechpartner</span>
+                  <p>Daten Ansprechpartner</p>
+                  <span>${club.clubcontactname || "-"} </span> 
               </div>
               <div class="pack">
                   <span>E-Mail Adresse</span>

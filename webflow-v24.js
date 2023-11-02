@@ -164,9 +164,9 @@ const addSearchField = (regionPage) => {
 };
 
 const mapRegionInteraction = () => {
-  const regionList = $(".regions-btn-list");
+  const regionList = $("#regions-btn-list");
   const svgElements = $(".hover-region-svg");
-
+console.log(regionList.find(`a[data-region="Hessen"]`))
   // Case Hovering over The Link
   regionList
     .on("mouseenter", "a", function () {
@@ -246,7 +246,11 @@ const filterResult = (query, regionPage) => {
                     ${htmlContentArray.join("")}
                 </ul>
             `;
-    if (result.length) $("#searchResults").html(htmlContent).fadeIn(500);
+    const noResultFound = `
+           <p>Leider konnte für deinen Suchbegriff kein Eisenbahner-Sportverein bzw. kein Angebot gefunden werden. Schau‘ gerne direkt in deiner Region. </p>     
+    `    
+    if (result.length >=1) {$("#searchResults").html(htmlContent).fadeIn(500)}
+    else{$("#searchResults").html(noResultFound).fadeIn(500)};
     // Modal Event
     //handleClickOnClub()
   } else {
@@ -298,16 +302,17 @@ const hideOrShowListItemsByRegion = (result) => {
     $("#regionMap .hover-region-svg").each(function () {
       $(this).parent(".collection-item-regions-button").removeClass("hovered");
     });
-    $("#searchResults ul").html("");
-    return;
+    $("#searchResults ul").html("")
+     $('#regions-btn-list .w-dyn-list').show();
+    return
   }
   // Extract unique region numbers from the result
   const uniqueRegionNumbers = [...new Set(result.map((item) => item.region))];
 
-  $("#regions-btn-list a[data-region]").each(function () {
+  $(".regions-btn-list a[data-region]").each(function () {
     const listItem = $(this);
     const listItemRegion = listItem.attr("data-region");
-
+    
     // Check if the region number is in the uniqueRegionNumbers array
     if (uniqueRegionNumbers.includes(listItemRegion)) {
       listItem.parent(".collection-item-regions-button").show();
@@ -315,6 +320,27 @@ const hideOrShowListItemsByRegion = (result) => {
       listItem.parent(".collection-item-regions-button").hide();
     }
   });
+
+   // check if column is all hidden
+  
+
+    // Select all w-dyn-list elements within the _3-columns container
+    const dynLists = $('#regions-btn-list .w-dyn-list');
+    $('#regions-btn-list .w-dyn-list').show();
+    // Loop through each w-dyn-list element
+
+    dynLists.each(function() {
+        const dynList = $(this);
+        const allItems = dynList.find('.w-dyn-item');
+        const hiddenItems = allItems.filter(':hidden');
+            
+        if (hiddenItems.length === allItems.length) {
+            dynList.hide();
+        } 
+    });
+    
+
+
   // Add Hover state to map
   $("#regionMap .hover-region-svg").each(function () {
     const listItem = $(this);

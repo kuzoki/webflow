@@ -166,7 +166,7 @@ const addSearchField = (regionPage) => {
 const mapRegionInteraction = () => {
   const regionList = $("#regions-btn-list");
   const svgElements = $(".hover-region-svg");
-console.log(regionList.find(`a[data-region="Hessen"]`))
+
   // Case Hovering over The Link
   regionList
     .on("mouseenter", "a", function () {

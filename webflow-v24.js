@@ -309,7 +309,7 @@ const hideOrShowListItemsByRegion = (result) => {
   // Extract unique region numbers from the result
   const uniqueRegionNumbers = [...new Set(result.map((item) => item.region))];
 
-  $(".regions-btn-list a[data-region]").each(function () {
+  $("#regions-btn-list a[data-region]").each(function () {
     const listItem = $(this);
     const listItemRegion = listItem.attr("data-region");
     

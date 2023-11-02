@@ -164,7 +164,7 @@ const addSearchField = (regionPage) => {
 };
 
 const mapRegionInteraction = () => {
-  const regionList = $("#regions-btn-list");
+  const regionList = $(".regions-btn-list");
   const svgElements = $(".hover-region-svg");
 
   // Case Hovering over The Link

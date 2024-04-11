@@ -130,7 +130,7 @@ const pushToClubsArray = () => {
       var region = $(this).attr("region");
       var regionNumber = $(this).attr("regionnumber");
       var categories = $(this).attr("categories");
-      var sports = $(this).attr("sports");
+      var sports = $(this).attr("sport");
       var reportid = $(this).attr("reportid");
 
       var clubObject = {
